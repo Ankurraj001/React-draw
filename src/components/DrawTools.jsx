@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import L from "leaflet";
+import L from "leaflet";
 import {
 	Map,
 	TileLayer,
