@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Map, TileLayer, Circle, FeatureGroup } from "react-leaflet";
+import { MapContainer, TileLayer, Circle, FeatureGroup } from "react-leaflet";
 import L from "leaflet";
 import { EditControl } from "react-leaflet-draw";
 
@@ -179,16 +179,19 @@ const Test =(props)=> {
     return (
       <div>
         {/* <button onClick={handleGeojson}>Add GeoJson</button> */}
-      <Map center={[37.8189, -122.4786]} zoom={13} zoomControl={false}>
+      <MapContainer center={[37.8189, -122.4786]} zoom={13} zoomControl={false}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
         />
         
         <FeatureGroup
-          ref={reactFGref => {
-            _onFeatureGroupReady(reactFGref);
-          }}
+          // ref={reactFGref => {
+          //   _onFeatureGroupReady(reactFGref);
+          // }}
+          // whenCreated={reactFGref => {
+          //   _onFeatureGroupReady(reactFGref);
+          // }}
         >
           <EditControl
             position="topright"
@@ -205,7 +208,7 @@ const Test =(props)=> {
             }}
           />
         </FeatureGroup>
-      </Map>
+      </MapContainer>
       </div>
     );
 }

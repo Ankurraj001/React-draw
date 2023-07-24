@@ -3,7 +3,7 @@ import React, { Fragment, useState } from "react";
 import DrawTools from "./components/DrawTools";
 
 // import { GlobalStateProvider, useGlobalState } from "./services/Store";
-import { Map, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 import Test from "./Test1";
 
 // import { EditControl } from "react-leaflet-draw";
@@ -59,8 +59,8 @@ features: []})
     <Fragment>
       {/* <GlobalStateProvider> */}
       <div id="map-wrapper">
-      <button onClick={handleGeojson}>Add GeoJson</button>
-        <Map center={[mapConfig.lat, mapConfig.lng]} zoom={mapConfig.zoom}>
+      {/* <button onClick={handleGeojson}>Add GeoJson</button> */}
+        <MapContainer center={[mapConfig.lat, mapConfig.lng]} zoom={mapConfig.zoom}>
           <FullscreenControl position="topleft" />
           {/* <DrawTools /> */}
           <Test setGeoData={setGeoData} geoData={geoData}/>
@@ -69,7 +69,7 @@ features: []})
             // url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}"
             url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
           />
-        </Map>
+        </MapContainer>
       </div>
       {/* </GlobalStateProvider> */}
     </Fragment>
